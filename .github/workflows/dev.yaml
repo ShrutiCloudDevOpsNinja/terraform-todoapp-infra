@@ -27,11 +27,16 @@ jobs:
           client-id: 33455864-0fc4-4125-99cb-792f00370585
           tenant-id: 7c657ef7-5d58-4fff-9154-29b1e68b8b30
           subscription-id: fdab0b83-a7b6-42e6-9227-9e2fc4f971cd
+          audience: api://AzureADTokenExchange
+          auth-type: SERVICE_PRINCIPAL
           
       - name: Export ARM environment variables for Terraform
         shell: powershell
         run: |
-          echo "ARM_USE_OIDC=true" >> $Env:GITHUB_ENV
+          echo "ARM_CLIENT_ID=33455864-0fc4-4125-99cb-792f00370585" >> $env:GITHUB_ENV
+          echo "ARM_TENANT_ID=7c657ef7-5d58-4fff-9154-29b1e68b8b30" >> $env:GITHUB_ENV
+          echo "ARM_SUBSCRIPTION_ID=fdab0b83-a7b6-42e6-9227-9e2fc4f971cd" >> $env:GITHUB_ENV
+          echo "ARM_USE_OIDC=true" >> $env:GITHUB_ENV
        
             
       - name: Terraform fmt
@@ -70,11 +75,18 @@ jobs:
         with:
           client-id: 33455864-0fc4-4125-99cb-792f00370585
           tenant-id: 7c657ef7-5d58-4fff-9154-29b1e68b8b30
-          subscription-id: fdab0b83-a7b6-42e6-9227-9e2fc4f971cd  
+          subscription-id: fdab0b83-a7b6-42e6-9227-9e2fc4f971cd
+          audience: api://AzureADTokenExchange
+          auth-type: SERVICE_PRINCIPAL
+          
+          
       - name: Export ARM environment variables for Terraform
-        shell: pwsh
+        shell: powershell
         run: |
-          echo "ARM_USE_OIDC=true" >> $Env:GITHUB_ENV
+          echo "ARM_CLIENT_ID=33455864-0fc4-4125-99cb-792f00370585" >> $env:GITHUB_ENV
+          echo "ARM_TENANT_ID=7c657ef7-5d58-4fff-9154-29b1e68b8b30" >> $env:GITHUB_ENV
+          echo "ARM_SUBSCRIPTION_ID=fdab0b83-a7b6-42e6-9227-9e2fc4f971cd" >> $env:GITHUB_ENV
+          echo "ARM_USE_OIDC=true" >> $env:GITHUB_ENV
           
       - name: Terraform Init
         id: init
