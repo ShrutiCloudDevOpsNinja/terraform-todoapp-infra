@@ -27,6 +27,12 @@ jobs:
           client-id: 33455864-0fc4-4125-99cb-792f00370585
           tenant-id: 7c657ef7-5d58-4fff-9154-29b1e68b8b30
           subscription-id: fdab0b83-a7b6-42e6-9227-9e2fc4f971cd
+          
+      - name: Export ARM environment variables for Terraform
+        shell: pwsh
+        run: |
+          echo "ARM_USE_OIDC=true" >> $Env:GITHUB_ENV
+       
             
       - name: Terraform fmt
         id: fmt
@@ -64,7 +70,11 @@ jobs:
         with:
           client-id: 33455864-0fc4-4125-99cb-792f00370585
           tenant-id: 7c657ef7-5d58-4fff-9154-29b1e68b8b30
-          subscription-id: fdab0b83-a7b6-42e6-9227-9e2fc4f971cd   
+          subscription-id: fdab0b83-a7b6-42e6-9227-9e2fc4f971cd  
+      - name: Export ARM environment variables for Terraform
+        shell: pwsh
+        run: |
+          echo "ARM_USE_OIDC=true" >> $Env:GITHUB_ENV
           
       - name: Terraform Init
         id: init
