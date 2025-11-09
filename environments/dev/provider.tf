@@ -6,8 +6,8 @@ terraform {
     }
   }
   backend "azurerm" {
-    resource_group_name  = "rg-devops"
-    storage_account_name = "twostates"
+    resource_group_name  = "rg-tfstate"
+    storage_account_name = "terraformtwostates"
     container_name       = "devtfstate"
     key                  = "dev.tfstate"
   }
