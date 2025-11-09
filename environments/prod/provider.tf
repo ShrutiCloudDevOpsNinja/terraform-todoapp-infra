@@ -8,7 +8,7 @@ terraform {
   backend "azurerm" {
     resource_group_name  = "rg-devopsinsiders"
     storage_account_name = "twostates"
-    container_name       = "tfstate"
+    container_name       = "prodtfstate"
     key                  = "prod.tfstate"
   }
 }
